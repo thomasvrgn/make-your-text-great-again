@@ -14,18 +14,25 @@
         Reset
       </Button>
     </div>
-    <Preview :src="src" />
+    <div class="container mx-auto w-1/2 mt-4">
+      <Input placeholder="Enter text..." />
+    </div>
+    <Preview :src="src" v-on:click=openDialog />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
+
 import Button from '~/components/Button.vue'
+import Input from '~/components/Input.vue'
+
 import Preview from '~/layouts/Preview.vue'
 
 export default Vue.extend({
   components: {
     Button,
+    Input,
     Preview
   },
   data: () => ({

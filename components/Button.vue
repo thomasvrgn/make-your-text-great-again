@@ -1,5 +1,5 @@
 <template>
-  <button class="py-2 px-6 text-white font-semibold rounded text-sm focus:outline-none" :class="`bg-${color}-500 hover:bg-${color}-600`" @click="$emit('click')">
+  <button class="py-2 px-6 text-white font-semibold rounded text-sm focus:outline-none transition duration-200" :class="`bg-${color}-500 hover:bg-${color}-600`" @click="$emit('click')">
     <slot></slot>
   </button>
 </template>
