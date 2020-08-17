@@ -7,7 +7,7 @@
       <Button class="flex-auto" color="indigo" v-on:click=openDialog>
         Upload photo
       </Button>
-      <Button class="flex-auto" color="teal">
+      <Button class="flex-auto" color="teal" @click=process>
         Process
       </Button>
       <Button class="flex-auto" color="red" v-on:click=resetDialog>
@@ -17,7 +17,10 @@
     <div class="container mx-auto w-1/2 mt-4">
       <Input placeholder="Enter text..." v-model="text" />
     </div>
-    <Preview :src="src" v-on:click=openDialog />
+    <div class="lg:container lg:mx-auto">
+      <Preview :src="src" v-on:click=openDialog />
+      <Canvas :src="src" :title="text" ref="process" />
+    </div>
   </div>
 </template>
 
@@ -28,12 +31,17 @@ import Button from '~/components/Button.vue'
 import Input from '~/components/Input.vue'
 
 import Preview from '~/layouts/Preview.vue'
+import Canvas from '~/layouts/Canvas.vue'
+
+import { EventBus } from '~/plugins/events'
 
 export default Vue.extend({
   components: {
     Button,
     Input,
-    Preview
+
+    Preview,
+    Canvas
   },
   methods: {
     openDialog: function () {
@@ -53,6 +61,9 @@ export default Vue.extend({
     },
     getRandomItem: function () : string {
       return this.randoms_items[Math.floor(Math.random() * this.randoms_items.length)]
+    },
+    process: function () {
+      EventBus.$emit('process')
     }
   },
   data: () => ({
