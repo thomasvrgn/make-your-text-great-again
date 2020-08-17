@@ -15,7 +15,7 @@
       </Button>
     </div>
     <div class="container mx-auto w-1/2 mt-4">
-      <Input placeholder="Enter text..." />
+      <Input placeholder="Enter text..." v-model="text" />
     </div>
     <Preview :src="src" v-on:click=openDialog />
   </div>
@@ -35,10 +35,6 @@ export default Vue.extend({
     Input,
     Preview
   },
-  data: () => ({
-    src: '',
-    text: 'Your Text'
-  }),
   methods: {
     openDialog: function () {
       const input = document.createElement('input')
@@ -54,7 +50,23 @@ export default Vue.extend({
     },
     resetDialog: function () {
       this.src = ''
+    },
+    getRandomItem: function () : string {
+      return this.randoms_items[Math.floor(Math.random() * this.randoms_items.length)]
     }
+  },
+  data: () => ({
+    src: '',
+    text: '',
+    randoms_items: [
+      'Ness',
+      'America',
+      'this project',
+      'Internet'
+    ]
+  }),
+  mounted: function () {
+    this.text = this.getRandomItem()
   }
 })
 </script>
