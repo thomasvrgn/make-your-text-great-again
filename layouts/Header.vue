@@ -1,14 +1,19 @@
 <template>
-  <div class="container mx-auto">
-    <Button color="teal" v-on:click=openDialog>
-      Upload photo
-    </Button>
-    <Button color="indigo">
-      Process
-    </Button>
-    <Button color="red" v-on:click=resetDialog>
-      Reset
-    </Button>
+  <div class="container mx-auto my-16">
+    <h1 class="text-center mb-16 text-5xl font-bold text-gray-700">
+      Make {{ text }} great again!
+    </h1>
+    <div class="container mx-auto w-1/2 flex justify-center space-x-4">
+      <Button class="flex-auto" color="indigo" v-on:click=openDialog>
+        Upload photo
+      </Button>
+      <Button class="flex-auto" color="teal">
+        Process
+      </Button>
+      <Button class="flex-auto" color="red" v-on:click=resetDialog>
+        Reset
+      </Button>
+    </div>
     <Preview :src="src" />
   </div>
 </template>
@@ -24,7 +29,8 @@ export default Vue.extend({
     Preview
   },
   data: () => ({
-    src: ''
+    src: '',
+    text: 'Your Text'
   }),
   methods: {
     openDialog: function () {

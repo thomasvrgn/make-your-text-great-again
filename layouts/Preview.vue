@@ -1,5 +1,5 @@
 <template>
-  <div class="w-1/2 block bg-gray-300 mx-auto rounded-lg">
+  <div class="w-1/2 block bg-gray-300 mx-auto rounded-lg my-16">
     <div class="container h-64 flex" v-if="src.length === 0">
       <span class="flex flex-initial text-center mx-auto items-center justify-center font-semibold text-gray-600">
         No images were uploaded...
