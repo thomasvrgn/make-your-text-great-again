@@ -1,29 +1,33 @@
 <template>
-  <div class="container">
+  <div class="container mx-auto">
     <Button color="teal" v-on:click=openDialog>
       Upload photo
     </Button>
     <Button color="indigo">
       Process
     </Button>
-    <img :src="src" alt="">
+    <Button color="red" v-on:click=resetDialog>
+      Reset
+    </Button>
+    <Preview :src="src" />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
 import Button from '~/components/Button.vue'
+import Preview from '~/layouts/Preview.vue'
 
 export default Vue.extend({
   components: {
-    Button
+    Button,
+    Preview
   },
   data: () => ({
     src: ''
   }),
   methods: {
     openDialog: function () {
-      console.log('test')
       const input = document.createElement('input')
       input.setAttribute('type', 'file')
       input.click()
@@ -34,6 +38,9 @@ export default Vue.extend({
         this.src = URL.createObjectURL(file)
         input.remove()
       })
+    },
+    resetDialog: function () {
+      this.src = ''
     }
   }
 })
