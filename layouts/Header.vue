@@ -7,9 +7,6 @@
       <Button class="flex-auto" color="indigo" v-on:click=openDialog>
         Upload photo
       </Button>
-      <Button class="flex-auto" :disabled=disabled color="teal" @click=process>
-        Process
-      </Button>
       <Button class="flex-auto" color="red" v-on:click=resetDialog>
         Reset
       </Button>
@@ -70,13 +67,6 @@ export default Vue.extend({
     },
     getRandomItem: function () : string {
       return this.randoms_items[Math.floor(Math.random() * this.randoms_items.length)]
-    },
-    process: function () {
-      EventBus.$emit('process')
-      this.disabled = !this.disabled
-      setTimeout(() => {
-        this.disabled = !this.disabled
-      }, 1000)
     },
     download: function () {
       EventBus.$emit('download')
