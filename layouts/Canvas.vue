@@ -1,6 +1,7 @@
 <template>
   <div class="container">
-    <canvas class="memeCanvas mx-auto" height="349" width="640"></canvas>
+    <canvas class="memeCanvas mx-auto hidden" height="349" width="640"></canvas>
+    <img :src="canvas_src" class="mx-auto" alt="">
   </div>
 </template>
 
@@ -27,7 +28,8 @@ export default Vue.extend({
   },
   data: () => ({
     d_title: '',
-    d_src: ''
+    d_src: '',
+    canvas_src: ''
   }),
   methods: {
     download: function () {
@@ -70,6 +72,7 @@ export default Vue.extend({
             ctx.fillStyle = 'white'
             ctx.textAlign = 'center'
             ctx.fillText(this.title.toUpperCase().split('').join(String.fromCharCode(8202)), 255, 195)
+            this.canvas_src = document.getElementsByTagName('canvas')[0].toDataURL()
           }
           picture.src = this.src
         } else {
@@ -79,6 +82,8 @@ export default Vue.extend({
           ctx.fillStyle = 'white'
           ctx.textAlign = 'center'
           ctx.fillText(this.title.toUpperCase().split('').join(String.fromCharCode(8202)), 255, 195)
+
+          this.canvas_src = document.getElementsByTagName('canvas')[0].toDataURL()
         }
       }
     }
