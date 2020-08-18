@@ -15,8 +15,8 @@
       <div class="container mx-auto w-1/2 mt-4">
         <Input placeholder="Enter text..." v-model="text" />
       </div>
-      <div class="lg:container lg:mx-auto lg:flex lg:items-center lg:mx-auto lg:justify-center">
-        <Preview :src="src" v-on:click=openDialog class="lg:flex-auto lg:w-5/12" />
+      <div class="lg:container lg:mx-auto lg:flex lg:items-center lg:mx-auto lg:justify-center space-x-4">
+        <Preview :src="src" v-on:click=openDialog class="lg:flex-auto lg:w-1/2" />
         <Canvas :src="src" :title="text" class="lg:flex-auto lg:w-1/2" ref="process" />
       </div>
       <Button color="indigo" class="mx-auto block" v-on:click=download>

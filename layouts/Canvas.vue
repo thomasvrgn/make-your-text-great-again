@@ -1,7 +1,14 @@
 <template>
   <div class="container">
-    <canvas class="memeCanvas mx-auto hidden" height="349" width="640"></canvas>
-    <img :src="canvas_src" class="mx-auto" alt="">
+    <canvas class="memeCanvas mx-auto hidden" height="258" width="498"></canvas>
+    <div v-if="canvas_src && canvas_src.length > 0">
+      <img :src="canvas_src" class="mx-auto" alt="">
+    </div>
+    <div v-else class="bg-gray-300 w-full rounded-lg h-64 flex">
+      <span class="flex items-center justify-center mx-auto font-semibold text-gray-600">
+        Meme not generated...
+      </span>
+    </div>
   </div>
 </template>
 
@@ -63,7 +70,7 @@ export default Vue.extend({
           const size = 128
           const picture = new Image(size, size)
           picture.onload = () => {
-            ctx.drawImage(picture, 410, 60, size, size)
+            ctx.drawImage(picture, 350, 20, size, size)
             ctx.globalCompositeOperation = 'destination-over'
             ctx.fillStyle = 'rgba(200, 0, 0, 0.5)'
             ctx.fillRect(0, 0, 0, 0)
@@ -72,7 +79,7 @@ export default Vue.extend({
             ctx.font = (56 - this.title.length * 1.75) + 'px Century'
             ctx.fillStyle = 'white'
             ctx.textAlign = 'center'
-            ctx.fillText(this.title.toUpperCase().split('').join(String.fromCharCode(8202)), 255, 195)
+            ctx.fillText(this.title.toUpperCase().split('').join(String.fromCharCode(8202)), 187.5, 155)
             this.canvas_src = document.getElementsByTagName('canvas')[0].toDataURL()
           }
           picture.src = this.src
@@ -82,7 +89,7 @@ export default Vue.extend({
           ctx.font = (56 - this.title.length * 1.75) + 'px Century'
           ctx.fillStyle = 'white'
           ctx.textAlign = 'center'
-          ctx.fillText(this.title.toUpperCase().split('').join(String.fromCharCode(8202)), 255, 195)
+            ctx.fillText(this.title.toUpperCase().split('').join(String.fromCharCode(8202)), 187.5, 155)
 
           this.canvas_src = document.getElementsByTagName('canvas')[0].toDataURL()
         }
