@@ -63,7 +63,9 @@ export default Vue.extend({
       })
     },
     resetDialog: function () {
+      EventBus.$emit('reset', this.text)
       this.src = ''
+      this.text = ''
     },
     getRandomItem: function () : string {
       return this.randoms_items[Math.floor(Math.random() * this.randoms_items.length)]

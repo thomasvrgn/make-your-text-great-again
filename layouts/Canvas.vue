@@ -48,6 +48,7 @@ export default Vue.extend({
       if (ctx === null) return
 
       ctx.clearRect(0, 0, canvas.width, canvas.height)
+      this.canvas_src = ''
       
       const background = new Image()
       background.src = require('~/assets/image.png')
@@ -93,7 +94,9 @@ export default Vue.extend({
       immediate: true,
       deep: true,
       handler: function (newValue) {
-        if (newValue.length === 0) return
+        this.canvas_src = ''
+        if (newValue && newValue.length === 0) return
+        if (!newValue) return
         this.draw()
       }
     },
@@ -101,7 +104,9 @@ export default Vue.extend({
       immediate: true,
       deep: true,
       handler: function (newValue) {
-        if (newValue.length === 0) return
+        this.canvas_src = ''
+        if (newValue && newValue.length === 0) return
+        if (!newValue) return
         this.draw()
       }
     },
