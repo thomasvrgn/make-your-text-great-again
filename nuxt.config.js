@@ -20,7 +20,22 @@ export default {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: 'Make your text great again with this website! Generate Trump memes with custom image and custom text.' },
-      { hid: 'image', property: 'og:image', content: '/your_text.png'}
+
+      // OG Metas
+
+      { property: 'og:type', content: 'website' },
+      { property: 'og:image', content: '/your_text.png' },
+      { property: 'og:title', content: 'Make your text great again' },
+      { property: 'og:url', content: 'https://make-text-great-again.netlify.app/' },
+      { property: 'og:description', content: 'Make your text great again with this website! Generate Trump memes with custom image and custom text.' },
+
+      // Twitter Metas
+
+      { property: 'twitter:card', content: 'summary_large_image' },
+      { property: 'twitter:url', content: 'https://make-text-great-again.netlify.app/' },
+      { property: 'twitter:title', content: 'Make your text great again' },
+      { property: 'twitter:description', content: 'Make your text great again with this website! Generate Trump memes with custom image and custom text.' },
+      { property: 'twitter:image', content: '/your_text.png' },
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' }
