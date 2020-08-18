@@ -55,14 +55,10 @@ export default Vue.extend({
         if (input.files === null) return
         const file = input.files[0]
         if (!file.type.startsWith('image')) return
-        const FR = new FileReader()
-        FR.addEventListener('load', (e) => {
-          if (!e.target || !e) return
-          localStorage.setItem('img', e.target.result)
-          this.src = URL.createObjectURL(file)
-        })
-        FR.readAsDataURL(file)
+
+        this.src = URL.createObjectURL(file)
         this.disabled = !this.disabled
+        
         setTimeout(() => {
           this.disabled = !this.disabled
         }, 1000)
