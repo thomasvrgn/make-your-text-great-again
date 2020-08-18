@@ -58,7 +58,7 @@ export default Vue.extend({
 
         this.src = URL.createObjectURL(file)
         this.disabled = !this.disabled
-        
+
         setTimeout(() => {
           this.disabled = !this.disabled
         }, 1000)
@@ -95,6 +95,16 @@ export default Vue.extend({
   }),
   mounted: function () {
     this.text = this.getRandomItem()
+    document.title = `Make ${this.text} great again!`
+  },
+  watch: {
+    text: {
+      immediate: true,
+      deep: true,
+      handler: function () {
+        document.title = `Make ${this.text} great again!`
+      }
+    }
   }
 })
 </script>
