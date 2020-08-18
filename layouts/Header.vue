@@ -1,26 +1,33 @@
 <template>
-  <div class="container mx-auto my-16">
-    <h1 class="text-center mb-16 text-5xl font-bold text-gray-700">
-      Make {{ text }} great again!
-    </h1>
-    <div class="container mx-auto w-1/2 flex justify-center space-x-4">
-      <Button class="flex-auto" color="indigo" v-on:click=openDialog>
-        Upload photo
+  <div class="pt-16 h-screen">
+    <div class="container mx-auto">
+      <h1 class="text-center mb-16 text-5xl font-bold text-gray-700">
+        Make {{ text }} great again!
+      </h1>
+      <div class="container mx-auto w-1/2 flex justify-center space-x-4">
+        <Button class="flex-auto" color="indigo" v-on:click=openDialog>
+          Upload photo
+        </Button>
+        <Button class="flex-auto" color="red" v-on:click=resetDialog>
+          Reset
+        </Button>
+      </div>
+      <div class="container mx-auto w-1/2 mt-4">
+        <Input placeholder="Enter text..." v-model="text" />
+      </div>
+      <div class="lg:container lg:mx-auto lg:flex lg:items-center lg:mx-auto lg:justify-center">
+        <Preview :src="src" v-on:click=openDialog class="lg:flex-auto lg:w-5/12" />
+        <Canvas :src="src" :title="text" class="lg:flex-auto lg:w-1/2" ref="process" />
+      </div>
+      <Button color="indigo" class="mx-auto block" v-on:click=download>
+        Download
       </Button>
-      <Button class="flex-auto" color="red" v-on:click=resetDialog>
-        Reset
-      </Button>
     </div>
-    <div class="container mx-auto w-1/2 mt-4">
-      <Input placeholder="Enter text..." v-model="text" />
-    </div>
-    <div class="lg:container lg:mx-auto lg:flex lg:items-center lg:mx-auto lg:justify-center">
-      <Preview :src="src" v-on:click=openDialog class="lg:flex-auto lg:w-5/12" />
-      <Canvas :src="src" :title="text" class="lg:flex-auto lg:w-1/2" ref="process" />
-    </div>
-    <Button color="indigo" class="mx-auto block" v-on:click=download>
-      Download
-    </Button>
+    <footer class="lg:absolute lg:bottom-0 lg:left-0 w-full bg-gray-200 mt-16 p-8">
+      <span class="text-center mx-auto block text-gray-700 font-semibold">
+        Made by <a href="https://nessmc.fr" target="_blank" class="text-blue-500 hover:underline">Ness</a>
+      </span>
+    </footer>
   </div>
 </template>
 
