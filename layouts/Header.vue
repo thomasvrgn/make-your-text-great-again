@@ -25,7 +25,7 @@
     </div>
     <footer class="lg:absolute lg:bottom-0 lg:left-0 w-full bg-gray-200 mt-16 p-8">
       <span class="text-center mx-auto block text-gray-700 font-semibold">
-        Made by <a href="https://nessmc.fr" target="_blank" class="text-blue-500 hover:underline">Ness</a>
+        Made by <a href="https://thomas.quark-lang.dev" target="_blank" class="text-blue-500 hover:underline">Thomas</a>
       </span>
     </footer>
   </div>
